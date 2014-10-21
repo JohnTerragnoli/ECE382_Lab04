@@ -9,14 +9,14 @@ ECE382_Lab04
 
 | Size    | Signed/Unsigned | Type           | Min Value      | Max Value |
 |---------|-----------------|----------------|----------------|-----------|
-| 8 bit   | Unsigned        |                |                |           |
-| 8 bit   | Signed          |                |                |           |
-| 16 bit  | Unsigned        | Unsigned Short |                |           |
-| 16 bit  | Signed          |                |                |           |
-| 32 bit  | Unsigned        |                |                |           |
-| 32 bit  | Signed          |                | -2,147,483,648 |           |
-| 64 bit  | Unsigned        |                |                |           |
-| 64 bit  |                 |                |                |           |
+| 8 bit   | Unsigned        | unsigned char,bool, _Bool               |0                |    255       |
+| 8 bit   | Signed          |     signed char          |       -128         |      127     |
+| 16 bit  | Unsigned        | Unsigned Short |      0          |      65 535       |
+| 16 bit  | Signed          | short, signed short                |-32 768                |   32 767        |
+| 32 bit  | Unsigned        |    unsigned long            |          0      |    4 294 967 295       |
+| 32 bit  | Signed          |  long, signed long              | -2,147,483,648 |    2 147 483 647       |
+| 64 bit  | Unsigned        |        unsigned long long        |         0       |    18 446 744 073 709 551 615       |
+| 64 bit  | Signed  | long long, signed long long | -9 223 372 036 854 775 808  | 9 223 372 036 854 775 807 |
 
 
 ##Code Definitions
