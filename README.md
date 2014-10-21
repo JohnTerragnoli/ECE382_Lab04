@@ -37,11 +37,16 @@ ECE382_Lab04
 
 | Iteration | a | b | c | d | e |
 |-----------|---|---|---|---|---|
-| 1st       | 1  |2   |  3 | 4  | 1  |
-| 2nd       | 10  | 9  |  8 |  7 |  10 |
-| 3rd       |  16 |  15 |  14 | 13  | 16  |
-| 4th       |  22 |  21 |   20|  19 | 22  |
-| 5th       |  28 |  27 |  26 | 25  | 28  |
+| 1st       | 10  | 9  |  8 |  7 |  10 |
+| 2nd       |  16 |  15 |  14 | 13  | 16  |
+| 3rd       |  22 |  21 |   20|  19 | 22  |
+| 4th       |  28 |  27 |  26 | 25  | 28  |
+|5th|34|33|32|31|34|
+
+
+Note: The values for these variables were found *after* each interation was completed.  
+
+
 
 ##Registers and Parameters
 
