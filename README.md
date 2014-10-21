@@ -23,14 +23,14 @@ ECE382_Lab04
 
 | Type   | Meaning               | C typedef Declaration        |
 |--------|-----------------------|------------------------------|
-| int8   | unsigned 8 bit value  |                              |
-| sint8  | signed 8 bit value    |                              |
+| int8   | unsigned 8 bit value  | typedef unsigned char int8  |
+| sint8  | signed 8 bit value    |  typedef signed char sint8   |
 | int16  | unsigned 16 bit value | typedef unsigned short int16 |
-| sint16 | signed 16 bit value   |                              |
-| int32  | unsigned 32 bit value |                              |
-| sint32 | signed 32 bit value   |                              |
-| int64  | unsigned 64 bit value |                              |
-| sint64 |                       |                              |
+| sint16 | signed 16 bit value   | typedef signed short sint16 |
+| int32  | unsigned 32 bit value | typedef unsigned long int32   |
+| sint32 | signed 32 bit value   |  typedef signed long sint32  |
+| int64  | unsigned 64 bit value |  typedef unsigned long long int64   |
+| sint64 | signed 64 bit value |  typedef signed long long sint64  |
 
 
 ##Calling/Returning Convention
