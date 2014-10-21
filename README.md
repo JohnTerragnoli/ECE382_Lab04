@@ -37,23 +37,28 @@ ECE382_Lab04
 
 | Iteration | a | b | c | d | e |
 |-----------|---|---|---|---|---|
-| 1st       |   |   |   |   |   |
-| 2nd       |   |   |   |   |   |
-| 3rd       |   |   |   |   |   |
-| 4th       |   |   |   |   |   |
-| 5th       |   |   |   |   |   |
+| 1st       | 1  |2   |  3 | 4  | 1  |
+| 2nd       | 10  | 9  |  8 |  7 |  10 |
+| 3rd       |  16 |  15 |  14 | 13  | 16  |
+| 4th       |  22 |  21 |   20|  19 | 22  |
+| 5th       |  28 |  27 |  26 | 25  | 28  |
 
 ##Registers and Parameters
 
 | Parameter                     | Value Sought |
 |-------------------------------|--------------|
-| Starting Address of Function  |              |
-| Ending Address of Function    |              |
-| Register holding w            |              |
-| Register holding x            |              |
-| Register holding y            |              |
-| Register holding z            |              |
-| Register holding return value |              |
+| Starting Address of Function  |  0xC0BA     |
+| Ending Address of Function    |  0xC0C6    |
+| Register holding w            |   R12           |
+| Register holding x            |   R13           |
+| Register holding y            |   R14           |
+| Register holding z            |   R15           |
+| Register holding return value |   R12           |
 
 ##Cross Language Build Constructs
 
+1. What is the role of the extern directive in a .c file? Hint: check out the external variable Wikipedia page.
+"An external variable is a variable defined outside any function block. On the other hand, a local (automatic) variable is a variable defined inside a function block" (Wiki page).  
+
+
+2. What is the role of the .global directive in an .asm file (used in lines 28-32)? Hint: reference section 2.6.2 in the MSP 430 Assembly Language Tools v4.3 User's Guide. 
