@@ -1,0 +1,140 @@
+Read meEtch-a-Sketch and Pong (LAB04)
+==============================
+
+
+
+#Prelab
+
+##Data Types
+
+| Size    | Signed/Unsigned | Type           | Min Value      | Max Value |
+|---------|-----------------|----------------|----------------|-----------|
+| 8 bit   | Unsigned        | unsigned char,bool, _Bool               |0                |    255       |
+| 8 bit   | Signed          |     signed char          |       -128         |      127     |
+| 16 bit  | Unsigned        | Unsigned Short |      0          |      65 535       |
+| 16 bit  | Signed          | short, signed short                |-32 768                |   32 767        |
+| 32 bit  | Unsigned        |    unsigned long            |          0      |    4 294 967 295       |
+| 32 bit  | Signed          |  long, signed long              | -2,147,483,648 |    2 147 483 647       |
+| 64 bit  | Unsigned        |        unsigned long long        |         0       |    18 446 744 073 709 551 615       |
+| 64 bit  | Signed  | long long, signed long long | -9 223 372 036 854 775 808  | 9 223 372 036 854 775 807 |
+
+
+##Code Definitions
+
+| Type   | Meaning               | C typedef Declaration        |
+|--------|-----------------------|------------------------------|
+| int8   | unsigned 8 bit value  | typedef unsigned char int8  |
+| sint8  | signed 8 bit value    |  typedef signed char sint8   |
+| int16  | unsigned 16 bit value | typedef unsigned short int16 |
+| sint16 | signed 16 bit value   | typedef signed short sint16 |
+| int32  | unsigned 32 bit value | typedef unsigned long int32   |
+| sint32 | signed 32 bit value   |  typedef signed long sint32  |
+| int64  | unsigned 64 bit value |  typedef unsigned long long int64   |
+| sint64 | signed 64 bit value |  typedef signed long long sint64  |
+
+
+##Calling/Returning Convention
+
+| Iteration | a | b | c | d | e |
+|-----------|---|---|---|---|---|
+| 1st       | 10  | 9  |  8 |  7 |  10 |
+| 2nd       |  16 |  15 |  14 | 13  | 16  |
+| 3rd       |  22 |  21 |   20|  19 | 22  |
+| 4th       |  28 |  27 |  26 | 25  | 28  |
+|5th|34|33|32|31|34|
+
+
+Note: The values for these variables were found *after* each interation was completed.  
+
+
+
+##Registers and Parameters
+
+| Parameter                     | Value Sought |
+|-------------------------------|--------------|
+| Starting Address of Function  |  0xC0BA     |
+| Ending Address of Function    |  0xC0C6    |
+| Register holding w            |   R12           |
+| Register holding x            |   R13           |
+| Register holding y            |   R14           |
+| Register holding z            |   R15           |
+| Register holding return value |   R12           |
+
+The picture for the proof of the location of "fuct" can be seen below:
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/2.%20Function%20location%20in%20Simple.PNG "func location")
+
+##Cross Language Build Constructs
+
+1. What is the role of the extern directive in a .c file? Hint: check out the external variable Wikipedia page.
+
+"An external variable is a variable defined outside any function block. On the other hand, a local (automatic) variable is a variable defined inside a function block" (Wiki page).  Therefore, an extern directive is a directive that calls variables which are defined outside of its block function. The difference between being declared and defined is that if something is declared, then it is defined elsewhere.  So whenever an extern variable is called, its definition is being referenced from outside of that function.  These can act almost as global variables so that they can be accessed from many different functions.  This would also allow you to call external variables defined in other files, like the .asm file we used in class the other day.  
+
+2. What is the role of the .global directive in an .asm file (used in lines 28-32)? Hint: reference section 2.6.2 in the MSP 430 Assembly Language Tools v4.3 User's Guide. 
+
+*see below*
+
+
+The big idea for 1 and 2:::
+As Dr. Coulston put it "extern directives allow .c files to communicate with variables and methods stored in .asm files, and .global directives allow .c files to "see" specific functions defined in .asm files."  This is evidently seen in the code used in Lesson 22.  
+
+Additionally, extern and .global directives set up the relocatable object code in such as way as to allow the linker to link the appropriate functions and variables between the .asm and .c code.  
+
+
+#Basic Functionality
+
+Achieving basic functionality was relatively easy.  The code for the .c and .asm files are below: 
+
+[Basic Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/Basic%20Functionality_c.txt)
+
+[Basic Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/basic%20functionality_asm.txt)
+
+##Basic Functionality Process:
+1. First, I ensured that Dr. Coulston's code worked by uploading it to the MSP430 and moving the square around the LCD screen.
+2. Then I tried to make a "slug" on the screen.  To do this I tried to find the subroutine responsible for clearing the screen continuously. I tried this with many of the subroutines in the .asm file.  Then I realized that the method clearDisplay exists in the .c file.  I deleted this and it made a beautiful slug.  Success.  
+2. I edited the .asm file and the function "drawBlock" to intake one more parameter.  I wanted to either pass in the value of 0x00 or 0xFF to the .asm file, which would either draw a white or a black square.  
+2. To do this, I defined another parameter for drawBlock called "color," which is a 16 bit long integer.  This is the parameter that will either be 0x00 or 0xFF.  Then, I went into the .asm file and added a push/pop at the beginning and the end of the drawBlock subroutine, respectively.  This was done R14, which is where the third parameter goes when passed into the .asm file.
+3. Then, I changed the line "	mov		0xFF, R13" to be "	mov		R14, R13", so that whatever value was passed in with R14 would determine the color of the block drawn.  
+4. Then, in the .c code, I needed to determine if the AUX button was pressed or not.  I simply added a check for this in the while loop that runs through all of the other buttons and designed the AUX if statement based on the if statements for the other buttons.  
+5. I created a variable in .c called "color," which will be the method passed into the drawBlock method.  
+6. I changed all of the callings of the drawBlock subroutine to include color.  
+7. At first, I tried switching the value of color in the AUX if statement using nested if statements.  The computer did not like this idea at all and the code would not work for the longest time.  Eventually, I decided that I stared at the screen for too long and worked on a different approach.  
+8. I decided that a simpler way to switch the value of color was just to XOR whatever value it was with 0xFF, which would switch it back and fourth from 0x00 to 0xFF.  
+
+
+The video showing [Required Functionality](https://drive.google.com/file/d/0Bymb7kjtbzuqTldsYmhtQzNCZ2s/view?usp=sharing) is shown here.  
+
+#B Functionality
+
+The code for the .c and .asm files are below: 
+
+[B Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/B%20Functionality_c.txt)
+
+[B Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/B%20Functionality_asm.txt)
+
+The video showing [B Functionality](https://drive.google.com/file/d/0Bymb7kjtbzuqa1FNRWdETEs5Tk0/view?usp=sharing) is shown here.  
+A second test case for [B Functionality](https://drive.google.com/file/d/0Bymb7kjtbzuqOGd4bUIzZUx6d0E/view?usp=sharing) is shown here.  
+
+#A Functionality
+
+The code for the .c and .asm files are below: 
+
+[A Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/A%20Functionality_c.txt)
+
+[A Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/A%20Functionality_asm.txt)
+
+The video showing [A Functionality](https://drive.google.com/file/d/0Bymb7kjtbzuqaWE0NEkyNHFOOWc/view?usp=sharing) is shown here.  
+
+#Bonus Functionality
+
+##Inverted Screen:
+
+Here is the video proving [inverting functionality](https://drive.google.com/file/d/0Bymb7kjtbzuqOE9ob1dRSmFYeFE/view?usp=sharing) 
+
+#Documentation: 
+##Prelab: NONE
+##Rest of Lab: 
+C2C Sabin Park told me that it is easier to store code in folder on gitHub and he explained to me how to do it.  
+
+
+
+
