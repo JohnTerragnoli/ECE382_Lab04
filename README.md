@@ -61,7 +61,7 @@ Note: The values for these variables were found *after* each interation was comp
 | Register holding return value |   R12           |
 
 The picture for the proof of the location of "fuct" can be seen below:
-![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/2.%20Function%20location%20in%20Simple.PNG "func location")
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/2.%20Pictures/2.%20Function%20location%20in%20Simple.PNG "func location")
 
 ##Cross Language Build Constructs
 
