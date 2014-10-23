@@ -84,9 +84,9 @@ Additionally, extern and .global directives set up the relocatable object code i
 
 Achieving basic functionality was relatively easy.  The code for the .c and .asm files are below: 
 
-[Basic Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/Basic%20Functionality_c.txt)
+[Basic Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/main_basic.c)
 
-[Basic Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/basic%20functionality_asm.txt)
+[Basic Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/nokia_basic.asm)
 
 ##Basic Functionality Process:
 1. First, I ensured that Dr. Coulston's code worked by uploading it to the MSP430 and moving the square around the LCD screen.
@@ -107,9 +107,9 @@ The video showing [Required Functionality](https://drive.google.com/file/d/0Bymb
 
 The code for the .c and .asm files are below: 
 
-[B Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/B%20Functionality_c.txt)
+[B Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/main_b.c)
 
-[B Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/B%20Functionality_asm.txt)
+[B Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/nokia_B.asm)
 
 The video showing [B Functionality](https://drive.google.com/file/d/0Bymb7kjtbzuqa1FNRWdETEs5Tk0/view?usp=sharing) is shown here.  
 A second test case for [B Functionality](https://drive.google.com/file/d/0Bymb7kjtbzuqOGd4bUIzZUx6d0E/view?usp=sharing) is shown here.  
@@ -118,15 +118,21 @@ A second test case for [B Functionality](https://drive.google.com/file/d/0Bymb7k
 
 The code for the .c and .asm files are below: 
 
-[A Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/A%20Functionality_c.txt)
+[A Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/main_A.c)
 
-[A Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/A%20Functionality_asm.txt)
+[A Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/nokia_A.asm)
 
 The video showing [A Functionality](https://drive.google.com/file/d/0Bymb7kjtbzuqaWE0NEkyNHFOOWc/view?usp=sharing) is shown here.  
 
 #Bonus Functionality
 
 ##Inverted Screen:
+
+The code for the .c and .asm files are below: 
+
+[Inverted Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/main_invert.c)
+
+[Inverted Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/nokia_invert.asm)
 
 Here is the video proving [inverting functionality](https://drive.google.com/file/d/0Bymb7kjtbzuqOE9ob1dRSmFYeFE/view?usp=sharing) 
 
