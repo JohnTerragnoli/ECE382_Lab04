@@ -105,6 +105,17 @@ The video showing [Required Functionality](https://drive.google.com/file/d/0Bymb
 
 #B Functionality
 
+**B Development Process**
+1. First to make this program I thought it was necessary just to have some sort of code that just moves the ball.  I did this by creating two new variables, xVel and yVel, and adding them to the positions x and y each interation of the while loop.  I did not worry about boundaries at first.  
+2. When I did this, I just saw a quick blur on the screen.  I realized that the machine was creating and moving the block too quickly.  To fix this I tried to find a delay function on Google.  It seemed that the closest thing there is is just to make a really large "for" loop, which holds nothing but goes through many iterations. 
+3. When I first did this, the block appeared but did not move at all.  I figured this was because my delay was just too long.  I shortened the number of iterations.  Then I realized that the number type I was using "char," would never be able to count up to the number I was using.  This meant the "for" loop would never finish!  To fix this I just made the counter of type "long." 
+4. Once I changed the number type, I was able to see the ball move.  I adjusted the number of interations for an ideal movement speed of the ball.  
+5. Once this occured, the ball moved right and down until it went off of the screen.  
+6. Once this was done, I made boundaries to keep the ball on the screen in the x and in the y direction.  Then, I tested to see where the position of the ball was, and when it hit a boundary, the velocity of the ball in that specific component was negated.  This made the ball switch directions.  
+7. This was the last thing done.  I have done many labs like this one before.  
+8. After this I ran a couple of test cases, such as starting from each of the corners and starting in different directions.  
+9. No more errors were encountered.  
+
 The code for the .c and .asm files are below: 
 
 [B Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/main_b.c)
