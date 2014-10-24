@@ -129,12 +129,16 @@ A second test case for [B Functionality](https://drive.google.com/file/d/0Bymb7k
 
 **Process for A Functionality**
 1. This process was a little more difficult. First, I decided that I needed to make a paddle.  Instead of changing the createBlock subroutine, I decided to create another one called "createPaddle."  This subroutine just created a bar for the paddle on the screen. 
-2. To do this, I had to create X and Y position variables for the paddle.  The column would always be constant, only the X needed to change.  
+2. To do this, I had to create X and Y position variables for the paddle.  The column would always be constant, only the X needed to change.  At first, I was getting errors on the screen which were not pointing to a location in the code.  I then realized I forgot to put the .global and extern prefixes at the front of the code for the createPaddle subroutine.  I added them in and the errors vanished.  
 3. Then, I initialized the paddle on the screen.  
 4. A problem I had with this was that I did not know how wide the screen was.  I had to use a lot of guessing and checking at first.  Then I remembered that each block is 8 wide and that 11 blocks can fit across the screen.  I used this measurement to pinpoint exactly the column needed to have the paddle on the right side of the screen.  
 5. Next, I just wanted to be able to move the paddle while allowing the ball to keep moving.  I just modled this if statment after the ones used in the given functionality.  The issue with this style was that when I pressed down the up or down button to move the paddle, the movement of the ball stopped while the button was held down.  This is clearly an issue!!
 6. To fix this, I got rid of the line that pauses the program while the button is held down.  This was created to prevent the bouncing affect.  Because I got rid of this, the paddle and the ball were able to move at the same time, however, the bouncing affect became a larger issue.  This made the button only work sporatically.  Sometimes when it was pressed down the paddle wouldn't move at all.  
-7. To combat this, I created a slight delay function for after the buttons were pressed down.  This allowed the mechanics of the button to settle before and action was taken on the button.  The result was a more accurate movement of the paddle.  
+7. To combat this, I created a slight delay function for after the buttons were pressed down.  This allowed the mechanics of the button to settle before and action was taken on the button.  The result was a more accurate movement of the paddle.
+8. Then I wanted to modify B functionality so that the game "ends" when the ball hits the right side of the screen.  To do this I just created a boolean variable of sorts.  This variable determines whether the program should stay in the "game" while loop or not.  It starts off as TRUE.  When the ball hits the right side of the wall, the variable is changed to FALSE.  The game moves onto the next empty while loop for eternity.  This part was easy to implement and there were no issues. 
+9. Then, I made sure that when the ball hit the paddle the ball bounces off as if it hit another wall.  This was fairly simple, as I just made sure the xVel switched when the ball equaled the coordinates of the paddle.  
+10. This last part worked well and was implemented easily. 
+11. The hardest part of the game was playing it.  I am still pretty bad at it :( 
 
 The code for the .c and .asm files are below: 
 
@@ -147,6 +151,8 @@ The video showing [A Functionality](https://drive.google.com/file/d/0Bymb7kjtbzu
 #Bonus Functionality
 
 ##Inverted Screen:
+
+**Production Process and Trials**
 
 The code for the .c and .asm files are below: 
 
