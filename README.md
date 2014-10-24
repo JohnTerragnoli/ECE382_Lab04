@@ -152,7 +152,12 @@ The video showing [A Functionality](https://drive.google.com/file/d/0Bymb7kjtbzu
 
 ##Inverted Screen:
 
+The purpose of this was to recreate B Functionality.  When the AUX button is pressed, however, the color of the ball and of the background must be inverted.  
+
 **Production Process and Trials**
+1. First, I altered by code for B Functionality so that the createBlock subroutine included a color parameter that could be passed in.  I did this by stealing the code from Basic Functionality.  
+2. Then, I created a sensor which decided whether the AUX button had been clicked or not.  Everytime the AUX button was clicked, the variable "color" was inverted.  At the end of the while loop the block was drawn onto the screen.  The result of this code was that the ball would be bouncing around the screen, the AUX button would be pressed, and the ball would dissapear.  When the AUX button was pressed again the ball would reappear at the further location on its trajectory.  
+3. 
 
 The code for the .c and .asm files are below: 
 
@@ -161,6 +166,11 @@ The code for the .c and .asm files are below:
 [Inverted Functionality.asm](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/nokia_invert.asm)
 
 Here is the video proving [inverting functionality](https://drive.google.com/file/d/0Bymb7kjtbzuqOE9ob1dRSmFYeFE/view?usp=sharing) 
+
+
+
+
+
 
 #Documentation: 
 ##Prelab: NONE
