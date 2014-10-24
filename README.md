@@ -127,6 +127,10 @@ A second test case for [B Functionality](https://drive.google.com/file/d/0Bymb7k
 
 #A Functionality
 
+**Process for A Functionality**
+1. This process was a little more difficult. First, I decided that I needed to make a paddle.  Instead of changing the createBlock subroutine, I decided to create another one called "createPaddle."  This subroutine just created a bar for the paddle on the screen. 
+2. To do this, I had to create X and Y position variables for the paddle.  The column would always be constant, only the X needed to change.  
+
 The code for the .c and .asm files are below: 
 
 [A Functionality.c](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab04/master/1.%20Code/main_A.c)
