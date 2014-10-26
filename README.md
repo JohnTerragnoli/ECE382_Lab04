@@ -1,4 +1,4 @@
-Read meEtch-a-Sketch and Pong (LAB04)
+Etch-a-Sketch and Pong (LAB04)
 ==============================
 
 
