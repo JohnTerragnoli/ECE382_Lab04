@@ -161,6 +161,14 @@ The purpose of this was to recreate B Functionality.  When the AUX button is pre
 4. To make blackDisplay(), I just copied the code for clearDisplay() and made 0xFF move into R12 and R13 instead of 0x00.  Therefore, blackDisplay() should make the entire screen black. 
 5. To test this, I just got rid of all of the other code in the while loop.  Then, I called the blackDisplay() subroutine.  The screen turned black!!! Just like it should have.  
 6. Then, I created a color variable, which could either be black or white. 
+7. If the color is white, then I call the subroutine by drawBlock(y,x,WHITE), which draws a white block, and blackDisplay(), which resets the screen with a black color every time the ball moves.  
+8. If the color is black, then I call the subroutine by drawBlock(y,x,BLACK), which draws a black block, and clearDisplay(), which means the program will operate the exact same way as regular B functionality.  
+9. To test these if statements, I just initiated the color either WHITE or BLACK in the beginning of the code.  Then I just tested it to make sure that the screen was displaying the way it was supposed to.  
+10. Next, I created a sensor for the AUX button, just like in basic functionality.  When the button is hit, but value of color changes from white to black or black to white.  I did this by XORing the value of color with 0xFF.  This worked fairly easily.  
+11. The largest issue I had was that the button was not as responsive as I wish it would be.  Sometimes when it is pressed, it will not negate.  Again, I suspected this to be because of the mechanical bouncing effect.  To fix this, I just made a slight delay from when the button senses that it has been pressed to the time when it is executed.  This did not fix the problem completely, but it did make the AUX button slightly more reliable.  
+
+The largest issue that I forgot to mention was that originally I tried to use the clearDisplay() subroutine with parameters so that it could be used to make the screen black or white.  This gave me a lot of trouble, so I ended up just making the blackDisplay() subroutine.  
+
 
 The code for the .c and .asm files are below: 
 
