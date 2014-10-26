@@ -157,7 +157,10 @@ The purpose of this was to recreate B Functionality.  When the AUX button is pre
 **Production Process and Trials**
 1. First, I altered by code for B Functionality so that the createBlock subroutine included a color parameter that could be passed in.  I did this by stealing the code from Basic Functionality.  
 2. Then, I created a sensor which decided whether the AUX button had been clicked or not.  Everytime the AUX button was clicked, the variable "color" was inverted.  At the end of the while loop the block was drawn onto the screen.  The result of this code was that the ball would be bouncing around the screen, the AUX button would be pressed, and the ball would dissapear.  When the AUX button was pressed again the ball would reappear at the further location on its trajectory.  
-3. 
+3. After I got this to occur, all I had to do was ensure that the color of the background changed as well.  To do this, I created a subroutine that is the exact oposite as clearDisplay().  I named it blackDisplay().  
+4. To make blackDisplay(), I just copied the code for clearDisplay() and made 0xFF move into R12 and R13 instead of 0x00.  Therefore, blackDisplay() should make the entire screen black. 
+5. To test this, I just got rid of all of the other code in the while loop.  Then, I called the blackDisplay() subroutine.  The screen turned black!!! Just like it should have.  
+6. Then, I created a color variable, which could either be black or white. 
 
 The code for the .c and .asm files are below: 
 
